@@ -33,7 +33,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
 
 # Install assets
 COPY assets/start.sh /start.sh
-COPY assets/nginx.conf /etc/nginx/sites-available/default
+COPY assets/vhost.conf /etc/nginx/sites-available/default
 
 # Defaults
 WORKDIR /src
