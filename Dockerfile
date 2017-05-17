@@ -5,7 +5,7 @@ FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install Nginx and php 5.6
+# Install Nginx, NodeJS, Grunt, php 5.6 and /var/www/ folder and permissions.
 RUN apt-get -qq update && \
     apt-get install -qq software-properties-common && \
     apt-get install -y language-pack-en-base && \
@@ -14,6 +14,9 @@ RUN apt-get -qq update && \
     apt-get update -qq && \
     apt-get install -qq wget nginx nginx-extras php5.6 php5.6-fpm php5.6-cli php5.6-curl php5.6-intl php5.6-mbstring php5.6-xml git nodejs npm unzip && \
     usermod -u 1000 www-data && \
+    mkdir /var/www/ && \
+    chown root /var/www/ && \
+    chgrp www-data /var/www/ && \
     locale-gen nl_NL.UTF-8 && \
     npm install --global n && \
     n 6.2.1 && \
@@ -31,11 +34,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
 # Install assets
 COPY assets/start.sh /start.sh
 COPY assets/nginx.conf /etc/nginx/sites-available/default
-
-# make www folder with correct permissions
-RUN mkdir /var/www/
-RUN chown root /var/www/ && \
-    chgrp www-data /var/www/
 
 # Defaults
 WORKDIR /src
