@@ -12,12 +12,9 @@ RUN apt-get -qq update && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C && \
     LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
     apt-get update -qq && \
-    apt-get install -qq wget nginx nginx-extras php5.6 php5.6-fpm php5.6-cli php5.6-curl php5.6-intl php5.6-mbstring php5.6-xml git nodejs npm unzip && \
+    apt-get install -qq wget nginx nginx-extras php5.6 php5.6-fpm php5.6-cli php5.6-mysql php5.6-curl php5.6-intl php5.6-mbstring php5.6-xml git nodejs npm unzip && \
     usermod -u 1000 www-data && \
     locale-gen nl_NL.UTF-8 && \
-    mkdir -p /var/www/ && \
-    touch /var/www/index.html && \
-    echo "Default page!" >> /var/www/index.html && \
     npm install --global n && \
     n 6.2.1 && \
     npm install --global grunt-cli
