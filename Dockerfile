@@ -14,10 +14,10 @@ RUN apt-get -qq update && \
     apt-get update -qq && \
     apt-get install -qq wget nginx nginx-extras php5.6 php5.6-fpm php5.6-cli php5.6-curl php5.6-intl php5.6-mbstring php5.6-xml git nodejs npm unzip && \
     usermod -u 1000 www-data && \
-    mkdir /var/www/ && \
-    chown root /var/www/ && \
-    chgrp www-data /var/www/ && \
     locale-gen nl_NL.UTF-8 && \
+    mkdir -p /var/www/ && \
+    touch /var/www/index.html && \
+    echo "Default page!" >> /var/www/index.html && \
     npm install --global n && \
     n 6.2.1 && \
     npm install --global grunt-cli
