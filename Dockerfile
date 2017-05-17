@@ -32,6 +32,11 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
 COPY assets/start.sh /start.sh
 COPY assets/nginx.conf /etc/nginx/sites-available/default
 
+# make www folder with correct permissions
+RUN mkdir /var/www/
+RUN chown root /var/www/ && \
+    chgrp www-data /var/www/
+
 # Defaults
 WORKDIR /src
 EXPOSE 80
