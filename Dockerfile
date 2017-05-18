@@ -1,11 +1,12 @@
 # 24i default application webserver with PHP 5.6 and nginx
+# Version 0.0.13
 
 # Start with Ubuntu 14.04 LTS
 FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install Nginx, NodeJS, Grunt, php 5.6 and /var/www/ folder and permissions.
+# Install Nginx, NodeJS, Grunt and php 5.6
 RUN apt-get -qq update && \
     apt-get install -qq software-properties-common && \
     apt-get install -y language-pack-en-base && \
@@ -30,7 +31,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
 
 # Install assets
 COPY assets/start.sh /start.sh
-COPY assets/vhost.conf /etc/nginx/sites-available/default
+COPY assets/vhost-default /etc/nginx/sites-available/default
 
 # Defaults
 WORKDIR /src
