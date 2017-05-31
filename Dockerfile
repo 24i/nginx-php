@@ -1,12 +1,12 @@
 # 24i default application webserver with PHP 5.6 and nginx
-# Version 0.0.13
+# Version 0.0.14
 
 # Start with Ubuntu 14.04 LTS
 FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install Nginx, NodeJS, Grunt and php 5.6
+# Install software
 RUN apt-get -qq update && \
     apt-get install -qq software-properties-common && \
     apt-get install -y language-pack-en-base && \
@@ -18,7 +18,9 @@ RUN apt-get -qq update && \
     locale-gen nl_NL.UTF-8 && \
     npm install --global n && \
     n 6.2.1 && \
-    npm install --global grunt-cli
+    npm install --global gulp-cli && \
+    npm install --global grunt-cli && \
+    mkdir -p /var/www/
 
 # Update configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
