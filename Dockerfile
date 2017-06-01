@@ -36,7 +36,7 @@ COPY assets/start.sh /start.sh
 COPY assets/vhost-default /etc/nginx/sites-available/default
 
 # execute permission to start.sh
-RUN ["chmod", "+x", "/start.sh”]
+RUN ["chmod", "+x", "/start.sh"]
 
 # Defaults
 WORKDIR /src
