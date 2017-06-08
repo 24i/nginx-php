@@ -1,10 +1,17 @@
 #!/bin/bash
+
+# run provisioning script if it exists
+if [ -e "/provisioning.sh" ] ; then 
+  echo "Found provisioning script"
+  chmod +x /provisioning.sh
+  /provisioning.sh
+else 
+  echo "No provisioning script found continue start procedure without it."
+fi
+
 # workaround: start the php-fpm service and stop it again, this will do the necessary configuration
 service php5.6-fpm start
 service php5.6-fpm stop
-
-#fix the nginx conf
-echo "$(eval "echo \"$(cat /etc/nginx/api-upstream)\"")" > /etc/nginx/api-upstream
 
 php-fpm5.6 --fpm-config /etc/php/5.6/fpm/php-fpm.conf --nodaemonize &
 pid1=$!
