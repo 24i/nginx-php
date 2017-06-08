@@ -4,7 +4,7 @@ service php5.6-fpm start
 service php5.6-fpm stop
 
 #fix the nginx conf
-echo "$(eval "echo \"$(cat /etc/nginx/sites-enabled/default)\"")" > /etc/nginx/sites-enabled/default
+echo "$(eval "echo \"$(cat /etc/nginx/api-upstream)\"")" > /etc/nginx/api-upstream
 
 php-fpm5.6 --fpm-config /etc/php/5.6/fpm/php-fpm.conf --nodaemonize &
 pid1=$!
