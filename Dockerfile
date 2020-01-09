@@ -1,8 +1,8 @@
 # 24i default application webserver with PHP 5.6 and nginx
 # Version 0.0.14
 
-# Start with Ubuntu 14.04 LTS
-FROM ubuntu:14.04
+# Start with Ubuntu 16.04 LTS
+FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -17,7 +17,7 @@ RUN apt-get -qq update && \
     usermod -u 1000 www-data && \
     locale-gen nl_NL.UTF-8 && \
     npm install --global n && \
-    n 6.2.1 && \
+    n 8.0.0 && \
     npm install --global gulp-cli && \
     npm install --global grunt-cli && \
     mkdir -p /var/www/
