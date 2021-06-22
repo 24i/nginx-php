@@ -1,8 +1,8 @@
-# 24i default application webserver with PHP 5.6 and nginx
+# 24i default application webserver with PHP 7.4 and nginx
 # Version 0.0.14
 
-# Start with Ubuntu 16.04 LTS
-FROM ubuntu:16.04
+# Start with Ubuntu 18.04 LTS
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
