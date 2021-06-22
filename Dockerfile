@@ -24,12 +24,12 @@ RUN apt-get -qq update && \
 
 # Update configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
-    sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/5.6/fpm/php.ini && \
-    sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/5.6/cli/php.ini && \
-    sed -i "s/pm.max_children = 5/pm.max_children = 50/" /etc/php/5.6/fpm/pool.d/www.conf && \
-    sed -i "s/pm.start_servers = 2/pm.start_servers = 10/" /etc/php/5.6/fpm/pool.d/www.conf && \
-    sed -i "s/pm.min_spare_servers = 1/pm.min_spare_servers = 5/" /etc/php/5.6/fpm/pool.d/www.conf && \
-    sed -i "s/pm.max_spare_servers = 3/pm.max_spare_servers = 20/" /etc/php/5.6/fpm/pool.d/www.conf
+    sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/7.4/fpm/php.ini && \
+    sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/7.4/cli/php.ini && \
+    sed -i "s/pm.max_children = 5/pm.max_children = 50/" /etc/php/7.4/fpm/pool.d/www.conf && \
+    sed -i "s/pm.start_servers = 2/pm.start_servers = 10/" /etc/php/7.4/fpm/pool.d/www.conf && \
+    sed -i "s/pm.min_spare_servers = 1/pm.min_spare_servers = 5/" /etc/php/7.4/fpm/pool.d/www.conf && \
+    sed -i "s/pm.max_spare_servers = 3/pm.max_spare_servers = 20/" /etc/php/7.4/fpm/pool.d/www.conf
 
 # Install assets
 COPY assets/start.sh /start.sh
