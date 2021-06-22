@@ -17,7 +17,7 @@ RUN apt-get -qq update && \
     usermod -u 1000 www-data && \
     locale-gen nl_NL.UTF-8 && \
     npm install --global n && \
-    n 6.2.1 && \
+    n 14.17.1 && \
     npm install --global gulp-cli && \
     npm install --global grunt-cli && \
     mkdir -p /var/www/
