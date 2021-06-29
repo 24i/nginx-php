@@ -13,7 +13,7 @@ RUN apt-get -qq update && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C && \
     LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
     apt-get update -qq && \
-    apt-get install -qq wget nginx nginx-extras php7.4 php7.4-fpm php7.4-cli php7.4-mysql php7.4-curl php7.4-intl php7.4-mbstring php7.4-xml git nodejs npm unzip && \
+    apt-get install -qq wget nginx nginx-extras php7.4 php7.4-fpm php7.4-cli php7.4-mysql php7.4-curl php7.4-intl php7.4-mbstring php7.4-xml php7.4-cgi git nodejs npm unzip && \
     usermod -u 1000 www-data && \
     locale-gen nl_NL.UTF-8 && \
     npm install --global n && \
